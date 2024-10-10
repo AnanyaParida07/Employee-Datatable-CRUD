@@ -106,4 +106,25 @@ public class EmployeeDto {
 		this.role = role;
 	}
 
+	public EmployeeDto(@NotNull(message = "ID Cannot be Null") int empId,
+			@NotNull(message = "ID Cannot be Null") int deptId,
+			@NotEmpty(message = "First Name cannot be empty") String firstName,
+			@NotEmpty(message = "Last Name cannot be empty") String lastName,
+			@NotNull(message = "Age cannot be null") int age,
+			@NotEmpty(message = "Email Cannot be empty") @Email(message = "Invalid Email!") @Pattern(regexp = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$", message = "Email format is invalid") String emailId,
+			@NotNull(message = "Salary Cannot be Null") double salary,
+			@NotEmpty(message = "Role cannot be empty") String role) {
+		super();
+		this.empId = empId;
+		this.deptId = deptId;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.age = age;
+		this.emailId = emailId;
+		this.salary = salary;
+		this.role = role;
+	}
+	
+	
+
 }
