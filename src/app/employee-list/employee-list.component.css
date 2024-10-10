@@ -1,0 +1,87 @@
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 0.9em; 
+    font-family: 'Arial', sans-serif;
+    min-width: 600px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+    background-color: white;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.custom-header th {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 8px 10px; 
+    font-size: 1em;  
+}
+
+.custom-table td {
+    padding: 8px 10px; 
+    text-align: center;
+    font-size: 1em;
+}
+
+.custom-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.custom-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+.action-buttons {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.update-button, .delete-button {
+    margin: 0 10px;
+    padding: 8px 15px; 
+    font-size: 0.9rem; 
+    border-radius: 20px;
+}
+
+.update-button {
+    background-color: #17a2b8;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+.table-container {
+    max-height: 400px; 
+    overflow-y: auto;
+    margin-bottom: 20px;
+}
+
+/* Custom styles for DataTables pagination and search box */
+.custom-table .dataTables_paginate .paginate_button {
+    background-color: #4CAF50;
+    color: white;
+    margin: 5px;
+    border-radius: 4px;
+}
+
+.custom-table .dataTables_paginate .paginate_button:hover {
+    background-color: #45a049;
+}
+
+.custom-table .dataTables_filter input {
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.custom-table .dataTables_filter label {
+    font-weight: bold;
+}

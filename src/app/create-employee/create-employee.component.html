@@ -1,0 +1,129 @@
+<div class="col-md-6 offset-md-3">
+  <h3>Create Employee</h3>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-row row">
+      <div class="form-group col-md-6 col">
+        <label>Employee ID</label>
+        <input
+          type="number"
+          class="form-control"
+          id="empId"
+          [(ngModel)]="employee.empId"
+          name="empId"
+          required
+        />
+        <div *ngIf="errorMessages.empId" class="text-danger">
+          {{ errorMessages.empId }}
+        </div>
+      </div>
+      <div class="form-group col-md-6 col">
+        <label>Department ID</label>
+        <input
+          type="number"
+          class="form-control"
+          id="deptId"
+          [(ngModel)]="employee.deptId"
+          name="deptId"
+          required
+        />
+        <div *ngIf="errorMessages.deptId" class="text-danger">
+          {{ errorMessages.deptId }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="firstName"
+        [(ngModel)]="employee.firstName"
+        name="firstName"
+        required
+      />
+      <div *ngIf="errorMessages.firstName" class="text-danger">
+        {{ errorMessages.firstName }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="lastName"
+        [(ngModel)]="employee.lastName"
+        name="lastName"
+        required
+      />
+      <div *ngIf="errorMessages.lastName" class="text-danger">
+        {{ errorMessages.lastName }}
+      </div>
+    </div>
+
+    <div class="form-row row">
+      <div class="form-group col-md-6 col">
+        <label>Age</label>
+        <input
+          type="number"
+          class="form-control"
+          id="age"
+          [(ngModel)]="employee.age"
+          name="age"
+          required
+        />
+        <div *ngIf="errorMessages.age" class="text-danger">
+          {{ errorMessages.age }}
+        </div>
+      </div>
+      <div class="form-group col-md-6 col">
+        <label>Salary</label>
+        <input
+          type="number"
+          class="form-control"
+          id="salary"
+          [(ngModel)]="employee.salary"
+          name="salary"
+          required
+        />
+        <div *ngIf="errorMessages.salary" class="text-danger">
+          {{ errorMessages.salary }}
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Email ID</label>
+      <input
+        type="email"
+        class="form-control"
+        id="emailId"
+        [(ngModel)]="employee.emailId"
+        name="emailId"
+        required
+      />
+      <div *ngIf="errorMessages.emailId" class="text-danger">
+        {{ errorMessages.emailId }}
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Role</label>
+      <input
+        type="text"
+        class="form-control"
+        id="role"
+        [(ngModel)]="employee.role"
+        name="role"
+        required
+      />
+      <div *ngIf="errorMessages.role" class="text-danger">
+        {{ errorMessages.role }}
+      </div>
+    </div>
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+</div>
+<br />
