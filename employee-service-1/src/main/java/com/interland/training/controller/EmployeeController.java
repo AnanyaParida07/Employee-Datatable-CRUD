@@ -47,12 +47,12 @@ public class EmployeeController {
 	}
 
 	@GetMapping("/get/{empId}/{deptId}")
-	public EmployeesEntity getMethodName(@PathVariable int empId, @PathVariable int deptId) {
+	public EmployeeDto getMethodName(@PathVariable int empId, @PathVariable int deptId) {
 		return service.fetchById(empId, deptId); 
 	}
 
 	@GetMapping("/getAll")
-	public List<EmployeesEntity> getAll() {
+	public List<EmployeeDto> getAll() {
 		return service.fetchAll();
 	}
 

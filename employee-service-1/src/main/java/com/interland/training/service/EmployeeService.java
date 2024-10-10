@@ -11,11 +11,11 @@ import com.interland.training.entity.EmployeesEntity;
 
 public interface EmployeeService {
 
-	List<EmployeesEntity> fetchAll();
+	List<EmployeeDto> fetchAll();
 
 	ServiceResponse createUser(EmployeeDto entity);
 
-	EmployeesEntity fetchById(int empId, int deptId);
+	EmployeeDto fetchById(int empId, int deptId);
 
 	ServiceResponse remove(int empId, int deptId);
 

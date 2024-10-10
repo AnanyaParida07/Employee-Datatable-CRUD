@@ -2,6 +2,7 @@ package com.interland.training.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -93,7 +94,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 				if (StringUtils.hasLength(entity.getRole())) {
 					employee.setRole(entity.getRole());
 				}
-				
+
 				repo.save(employee);
 				logger.info("DATA UPDATED SUCESSFULLY");
 				return new ServiceResponse("Success", "DATA UPDATED", null);
@@ -110,29 +111,57 @@ public class EmployeeServiceImpl implements EmployeeService {
 		throw new EmployeeNotFoundException("Employee ID does not exist");
 	}
 
+//	@Override
+//	public EmployeeDto fetchById(int empId, int deptId) {
+//		try {
+//			EmployeePK emp = new EmployeePK(empId, deptId);
+//			if (repo.existsById(emp)) {
+//				return repo.findById(emp).get();
+//			} else {
+//				logger.info("ID Does not exist");
+//			}
+//		} catch (Exception e) {
+//			System.out.println(e.getMessage());
+//		}
+//		throw new EmployeeNotFoundException("Employee ID does not exist");
+//	}
+	
 	@Override
-	public EmployeesEntity fetchById(int empId, int deptId) {
-		try {
+	public EmployeeDto fetchById(int empId, int deptId) {
+	    try {
 			EmployeePK emp = new EmployeePK(empId, deptId);
-			if (repo.existsById(emp)) {
-				return repo.findById(emp).get();
-			} else {
-				logger.info("ID Does not exist");
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-		throw new EmployeeNotFoundException("Employee ID does not exist");
+	        Optional<EmployeesEntity> projectEntityOptional = repo.findById(emp);
+	        if (projectEntityOptional.isPresent()) {
+	            EmployeesEntity project = projectEntityOptional.get();
+	            logger.info(project);
+	            EmployeeDto projectDto = new EmployeeDto(
+	            		project.getIds().getEmpId(), project.getIds().getDeptId(),
+						project.getFirstName(), project.getLastName(), project.getAge(), project.getEmailId(),
+						project.getSalary(), project.getRole()
+	            );
+	            return projectDto;
+	        }
+	    } catch (Exception e) {
+	        e.printStackTrace();
+	    }
+	    throw new EmployeeNotFoundException("ID DOESN'T EXIST");
 	}
 
 	@Override
-	public List<EmployeesEntity> fetchAll() {
+	public List<EmployeeDto> fetchAll() {
 		try {
-			return repo.findAll();
+			List<EmployeesEntity> projects = repo.findAll();
+
+			return projects.stream()
+					.map(project -> new EmployeeDto(project.getIds().getEmpId(), project.getIds().getDeptId(),
+							project.getFirstName(), project.getLastName(), project.getAge(), project.getEmailId(),
+							project.getSalary(), project.getRole()))
+					.collect(Collectors.toList());
+
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			e.printStackTrace();
 		}
-		return null;
+		return List.of();
 	}
 
 }
