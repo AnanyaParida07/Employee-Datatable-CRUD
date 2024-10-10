@@ -2,31 +2,73 @@
 # Employee-Datatable-CRUD
 The Employee Management System is a web application built with Angular and Spring Boot. It features a dynamic employee table using DataTables, enabling efficient CRUD operations like listing, updating, and deleting employee records through a RESTful API for smooth data management and user interaction.
 =======
-# Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.4.
+# Employee Management System
 
-## Development server
+## Overview
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This project is an Employee Management System built using **Spring Boot** for the backend and **Angular** for the frontend. It utilizes a **MySQL** database to store employee data.
 
-## Code scaffolding
+## Technologies Used
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Backend:** Spring Boot
+- **Frontend:** Angular
+- **Database:** MySQL
 
-## Build
+## Features
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+- Employee CRUD (Create, Read, Update, Delete) operations
+- User authentication and authorization
+- Responsive user interface
+- RESTful API for communication between frontend and backend
 
-## Running unit tests
+## Prerequisites
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Backend
 
-## Running end-to-end tests
+- Java 17 or later
+- Maven
+- MySQL Server
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+### Frontend
 
-## Further help
+- Node.js (v14 or later)
+- Angular CLI
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
->>>>>>> 8e1914d (Initial commit)
+## Getting Started
+
+### Backend Setup
+
+1. **Clone the repository:**
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+
+
+2. **Configure MySQL Database:**
+
+Create a new MySQL database for the application.
+Update the application.properties file in the src/main/resources directory with your database details:
+
+spring.datasource.url=jdbc:mysql://localhost:3306/<your-database-name>
+spring.datasource.username=<your-username>
+spring.datasource.password=<your-password>
+spring.jpa.hibernate.ddl-auto=update
+
+3. **Build and Run the Backend:**
+
+mvn clean install
+mvn spring-boot:run
+
+Frontend Setup
+Navigate to the frontend directory:
+
+cd <frontend-directory>
+
+Install dependencies:
+npm install
+
+Run the Angular Application:
+ng serve
+
+
